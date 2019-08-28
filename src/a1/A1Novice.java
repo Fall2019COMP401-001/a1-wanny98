@@ -14,13 +14,8 @@ public class A1Novice {
 		// Read in number of customers to proceed
 		int cust_count = scan.nextInt();
 		
-		// Create string arrays for names
-		String[] names = new String[cust_count*2];
-		
 		// Create while loop until all customer info is inputed
 		int i = 0;
-		int j = 0;
-		int k = 0;
 		double totals = 0;
 		while (i<cust_count) {
 			String fname = scan.next();
@@ -30,7 +25,8 @@ public class A1Novice {
 			System.out.print(lname + ": ");
 
 			int item_count = scan.nextInt();
-			while (k<item_count) {
+			totals = 0;
+			for (int k=0; k<item_count; k++) {
 				int quantity = scan.nextInt();
 				scan.next();
 				double price = scan.nextDouble();
@@ -38,9 +34,8 @@ public class A1Novice {
 				double total = quantity * price;
 				totals += total;
 				
-				k++;
 			}
-			System.out.print(String.format("%.2f", ((double) totals)));
+			System.out.println(String.format("%.2f", ((double) totals)));
 			
 			i++;
 		}
