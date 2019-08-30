@@ -1,7 +1,6 @@
 package a1;
 
 import java.util.Scanner;
-import java.util.Arrays;
 import java.util.Hashtable;
 
 public class A1Adept {
@@ -76,11 +75,11 @@ public class A1Adept {
 		int small = smallIndex(totals);
 		
 		System.out.println("Biggest: " + fname[big] + " " + 
-		lname[big] + "(" + String.format("%.2f", (double) totals[big]) + 
+		lname[big] + " (" + String.format("%.2f", (double) totals[big]) + 
 		")");
 
 		System.out.println("Smallest: " + fname[small] + " " + 
-		lname[small] + "(" + String.format("%.2f", (double) totals[small]) + 
+		lname[small] + " (" + String.format("%.2f", (double) totals[small]) + 
 		")");
 		
 		System.out.println("Average: " + String.format("%.2f", (double) average_amount));
