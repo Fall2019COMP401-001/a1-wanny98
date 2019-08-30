@@ -12,6 +12,7 @@ public class A1Jedi {
 		//Declare hashmap of items total quantity and items total customers
 		HashMap<String, Integer> item_total = new HashMap<String, Integer>();
 		HashMap<String, Integer> item_cust = new HashMap<String, Integer>();
+		HashMap<String, Integer> list = new HashMap<String, Integer>();
 		
 		//Read input of number of items in store, int
 		int item_count = scan.nextInt();
@@ -26,6 +27,7 @@ public class A1Jedi {
 			//Add name to hashmap with value 0
 			item_total.put(item, 0);
 			item_cust.put(item, 0);
+			list.put(item, 0);
 			//Add name to array
 			item_names[i] = item;
 			//Read input of price of item, dbl			
@@ -34,7 +36,6 @@ public class A1Jedi {
 		
 		//Read input of total number of customers, int
 		int cust_count = scan.nextInt();
-		//Declare variable at same time
 		
 		//Loop through each customer
 		for(int j=0; j<cust_count; j++) {
@@ -51,10 +52,13 @@ public class A1Jedi {
 				String item_name = scan.next();
 				//Add quantity to value and replace in hashmap
 				item_total.replace(item_name, item_total.get(item_name)+quantity);
-				//Add 1 to item_cust hashmap of key: item
-				item_cust.replace(item_name, item_cust.get(item_name)+1);
-		
+				if(list.get(item_name)==0) {
+					//Add 1 to item_cust hashmap of key: item
+					item_cust.replace(item_name, item_cust.get(item_name)+1);
+				}
+				list.replace(item_name, item_total.get(item_name)+1);
 			}
+			iterateandreset(list);
 		}
 		
 		//Print to console
@@ -70,5 +74,12 @@ public class A1Jedi {
 		
 		//Close scan
 		scan.close();
+	}
+	
+	public static void iterateandreset(HashMap<String, Integer> map) {
+		for (HashMap.Entry<String, Integer> entry : map.entrySet()) {
+	        String key = entry.getKey();
+	        map.replace(key, 0);
+	    }
 	}
 }
